@@ -6,38 +6,38 @@ typedef struct transf
 	int bit;
 	struct transf* urm;
 }nod;
-nod* adaugare(nod* prim, int bit)
+nod* adaug(nod* pr, int bit)
 {
 	nod* p;
 	p = (nod*)malloc(sizeof(nod));
 	p->bit = bit;
-	p->urm = prim;
-	prim = p;
-	return prim;
+	p->urm = pr;
+	pr = p;
+	return pr;
 
 }
-void afisare(nod* prim)
+void afisez(nod* pr)
 {
 	nod* q;
 	int contor = 0;
-	for (q = prim; q != NULL; q = q->urm)
+	for (q = pr; q != NULL; q = q->urm)
 		printf("%d", q->bit);
 	printf("\n");
 
 }
 int main()
 {
-	nod* prim;
+	nod* pr;
 	int n, r;
-	prim = NULL;
+	pr= NULL;
 	scanf("%d", &n);
 	while (n != 0)
 	{
 		r = n % 2;
-		prim = adaugare(prim, r);
+		pr= adaug(pr, r);
 		n = n / 2;
 	}
-	afisare(prim);
+	afisez(pr);
 	system("pause");
 	return 0;
 }
